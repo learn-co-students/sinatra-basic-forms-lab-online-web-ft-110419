@@ -32,6 +32,7 @@ describe App do
 
       #form method attribute is a post
       expect(page.find('form')[:method]).to match(/post/i)
+    
 
       expect(page).to have_field(:name)
       expect(page).to have_field(:breed)
@@ -51,6 +52,7 @@ describe App do
       #the below css will match any element (input or button)
       #with a type attribute set to submit
       page.find(:css, '[type=submit]').click
+
     end
 
     it "sends a 200 status code" do
@@ -63,6 +65,7 @@ describe App do
 
     it "displays the puppy information dynamically" do
       # The \s below will match any whitespace
+
       expect(page).to have_text(/Name:\s+Butch/i)
       expect(page).to have_text(/Breed:\s+Mastiff/i)
       expect(page).to have_text(/Age:\s+6 months/i)
